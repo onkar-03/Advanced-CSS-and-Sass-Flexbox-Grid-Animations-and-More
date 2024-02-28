@@ -1,0 +1,58 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Best Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Font Size */
+html {
+  /* Default font-size: 16px */
+  /* font-size: 10px; */
+  /* 10 / 16 = 0.625 = 62.5%; */
+  /* Percentage of User Browser font-size setting */
+  font-size: 62.5%;
+}
+
+/* Body & Overall Display Settings */
+body {
+  /* As font-style is a property thats inherited hence declaring it in body */
+  font-style: 'Lato', sans-serif;
+
+  /* Default Line Height */
+  line-height: 1.7;
+
+  /* Color */
+  color: #777;
+
+  /* Border Around the Web Page */
+  padding: 3rem;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(../img/hero.jpg);
+
+  /* It automatically scales & crops the image as needed to cover the entire background, without leaving any empty space */
+  background-size: cover;
+
+  /* This property is used to specify the starting position of a background image within its containing element */
+  background-position: top;
+
+  /* clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
