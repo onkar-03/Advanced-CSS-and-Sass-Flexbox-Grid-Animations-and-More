@@ -55,4 +55,43 @@ body {
 
   /* clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  /* Relative Parent for Logo img */
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.logo {
+  height: 3.5rem;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+.heading-primary-main {
+  /* To display main and sub lines in different lines */
+  display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 3.5rem;
+}
+.heading-primary-sub {
+  /* To display main and sub lines in different lines */
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.74rem;
 }
