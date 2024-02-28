@@ -144,6 +144,17 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* BUTTON */
 .btn:link,
 .btn:visited {
@@ -157,7 +168,10 @@ body {
   border-radius: 100px;
 
   /* Smooth Transition of Button */
-  transition: all 0.3s;
+  transition: all 0.2s;
+
+  /* To push the ::after button back the parent button needs to be relative */
+  position: relative;
 }
 
 .btn:hover {
@@ -173,4 +187,43 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+.btn::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 100px;
+
+  /* As ::after is child of button 100% means exactly as the size of the buttons */
+  height: 100%;
+  width: 100%;
+
+  /* Absolute Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* Pushing behind the button */
+  z-index: -1;
+
+  /* Adding animation / transition to the ::after button scaling as the parent of the .btn:hover::after is .btn:hover */
+  transition: all 0.4s;
+}
+
+/* On hovering animating the ::after button */
+.btn:hover::after {
+  /* Wanna scale it and then make it disappear to add a scaling effect on hovering */
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation-name: moveInBottom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+
+  /* The button is already there and does not come up from the bottom initially */
+  /* animation-fill-mode:backwards; is used to apply the 0% state from the very beginning to the button */
+  animation-fill-mode: backwards;
 }
