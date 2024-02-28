@@ -87,6 +87,14 @@ body {
   font-size: 6rem;
   font-weight: 700;
   letter-spacing: 3.5rem;
+
+  /* Animations */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* To remove the shakiness of the animation */
+  backface-visibility: hidden;
 }
 .heading-primary-sub {
   /* To display main and sub lines in different lines */
@@ -94,4 +102,39 @@ body {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.74rem;
+
+  /* Animations shorthand notation */
+  animation: moveInRight 1s ease-out;
+}
+
+/* Move in from Left heading-primary-main */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Move in from Right heading-primary-sub */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
