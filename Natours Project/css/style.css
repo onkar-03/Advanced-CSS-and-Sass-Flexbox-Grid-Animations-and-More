@@ -14,7 +14,7 @@ Dark green: #28b485
   box-sizing: border-box;
 }
 
-/* Root Font Size */
+/* Root Font Size Declaration*/
 html {
   /* Default font-size: 16px */
   /* font-size: 10px; */
@@ -71,12 +71,13 @@ body {
 }
 
 .text-box {
+  /* Center Heading Content at the Center of the Page */
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  /* Align anchor elements(inline) at the center of the Header Section */
+  /* Align anchor elements {['Button'] which are inline} at the center of the TextBox Section */
   text-align: center;
 }
 
@@ -87,7 +88,7 @@ body {
 }
 
 .heading-primary-main {
-  /* To display main and sub lines in different lines */
+  /* To display main & sub lines in different lines */
   display: block;
   font-size: 60px;
   font-weight: 700;
@@ -101,8 +102,9 @@ body {
   /* To remove the shakiness of the animation */
   backface-visibility: hidden;
 }
+
 .heading-primary-sub {
-  /* To display main and sub lines in different lines */
+  /* To display main & sub lines in different lines */
   display: block;
   font-size: 20px;
   font-weight: 700;
@@ -167,7 +169,7 @@ body {
   padding: 15px 40px;
   border-radius: 100px;
 
-  /* Smooth Transition of Button */
+  /* Smooth Transition of Button on Hover and Active */
   transition: all 0.2s;
 
   /* To push the ::after button back the parent button needs to be relative */
@@ -189,16 +191,21 @@ body {
   color: #777;
 }
 
+/* Pseudo Button Element */
 .btn::after {
   content: '';
-  background-color: #fff;
-  border-radius: 100px;
 
-  /* As ::after is child of button 100% means exactly as the size of the buttons */
+  /* As the original Button is also inline block  */
+  display: inline-block;
+
+  /* As ::after is child of button, 100% means exactly as the size of the buttons */
   height: 100%;
   width: 100%;
 
-  /* Absolute Positioning */
+  border-radius: 100px;
+
+  /* Absolute Positioning to place it behind the Main Button */
+  /* Parent : .btn:link,.btn:hover{} */
   position: absolute;
   top: 0;
   left: 0;
@@ -206,13 +213,18 @@ body {
   /* Pushing behind the button */
   z-index: -1;
 
-  /* Adding animation / transition to the ::after button scaling as the parent of the .btn:hover::after is .btn:hover */
+  /* Animation Transition for .btn:hover::after */
   transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
 }
 
 /* On hovering animating the ::after button */
 .btn:hover::after {
   /* Wanna scale it and then make it disappear to add a scaling effect on hovering */
+  /* Initial state for transition : hover::after */
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
