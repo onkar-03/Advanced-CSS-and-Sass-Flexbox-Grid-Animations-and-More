@@ -18,9 +18,9 @@ Dark green: #28b485
 html {
   /* Default font-size: 16px */
   /* font-size: 10px; */
-  /* 16 / 16 = 0.625 = 62.5%; */
+  /* 10 / 16 = 0.625 = 62.5%; */
   /* Percentage of User Browser font-size setting */
-  font-size: 100%;
+  font-size: 62.5%;
 }
 
 /* Body & Overall Display Settings */
@@ -35,7 +35,7 @@ body {
   color: #777;
 
   /* Border Around the Web Page */
-  padding: 30px;
+  padding: 3rem;
 }
 
 .header {
@@ -62,12 +62,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -84,15 +84,15 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* To display main & sub lines in different lines */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 700;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* Animations */
   animation-name: moveInLeft;
@@ -106,9 +106,9 @@ body {
 .heading-primary-sub {
   /* To display main & sub lines in different lines */
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* Animations shorthand notation */
   animation: moveInRight 1s ease-out;
@@ -118,11 +118,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
     opacity: 1;
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   100% {
     opacity: 1;
@@ -134,11 +134,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
     opacity: 1;
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
   100% {
     opacity: 1;
@@ -149,7 +149,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
   100% {
     opacity: 1;
@@ -166,8 +166,8 @@ body {
   /* Anchor elements are inline */
   display: inline-block;
 
-  padding: 15px 40px;
-  border-radius: 100px;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
 
   /* Smooth Transition of Button on Hover and Active */
   transition: all 0.2s;
@@ -178,12 +178,12 @@ body {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -202,7 +202,7 @@ body {
   height: 100%;
   width: 100%;
 
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* Absolute Positioning to place it behind the Main Button */
   /* Parent : .btn:link,.btn:hover{} */
