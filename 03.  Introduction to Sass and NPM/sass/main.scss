@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// Declaring Variables in SCSS
+$color-primary: #f9ed69; //yellow color
+$color-secondary: #f08a5d; //orange
+$color-tertiary: #b83b5e; //pink
+$color-text-dark: #333;
+$color-text-light: #eee;
+
+// Declaring width Variable
+$width-button: 150px;
+
+nav {
+  margin: 30px;
+  background-color: $color-primary;
+
+  // Using clearfix hack to prevent parent from collapsing when all its child elements are floated
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  //Nesting in SCSS
+  li {
+    display: inline-block;
+    margin-left: 30px;
+
+    //Nesting in SCSS
+    // '&' is used to refer to the parent selector in nested styles, making your code more concise and easier to understand
+    &:first-child {
+      margin: 0;
+    }
+
+    a {
+      //Nesting for anchor Element for :link State
+      &:link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-text-dark;
+      }
+    }
+  }
+}
+
+.buttons {
+  float: right;
+}
+
+.btn-main:link,
+.btn-hot:link {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: $width-button;
+  border-radius: 100px;
+
+  color: $color-text-light;
+}
+
+.btn-main {
+  // Nesting
+  &:link {
+    background-color: $color-secondary;
+  }
+  // Nesting
+  &:hover {
+    // Inbuilt Function `darken`
+    background-color: darken($color-secondary, 15%);
+  }
+}
+
+.btn-hot {
+  // Nesting
+  &:link {
+    background-color: $color-tertiary;
+  }
+  // Nesting
+  &:hover {
+    // Inbuilt Function `lighten`
+    background-color: lighten($color-tertiary, 15%);
+  }
+}
