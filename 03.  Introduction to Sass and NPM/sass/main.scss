@@ -13,16 +13,36 @@ $color-text-light: #eee;
 // Declaring width Variable
 $width-button: 150px;
 
-nav {
-  margin: 30px;
-  background-color: $color-primary;
-
+// Declaring Mixins
+@mixin clearfix {
+  // Using it as a reusable piece of Code
   // Using clearfix hack to prevent parent from collapsing when all its child elements are floated
   &::after {
     content: '';
     clear: both;
     display: table;
   }
+}
+
+//Declaring a Function
+@function divide($a, $b) {
+  @return $a/$b;
+}
+
+// Declaring a mixin with argument
+@mixin style-link-text($color) {
+  text-decoration: none;
+  text-transform: uppercase;
+
+  // Displays the colors passed to the Function
+  color: $color;
+}
+
+nav {
+  margin: 30px;
+  background-color: $color-primary;
+  // Including mixin
+  @include clearfix;
 }
 
 .navigation {
@@ -43,9 +63,8 @@ nav {
     a {
       //Nesting for anchor Element for :link State
       &:link {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $color-text-dark;
+        // Including mixin
+        @include style-link-text($color-text-dark);
       }
     }
   }
@@ -55,22 +74,23 @@ nav {
   float: right;
 }
 
-.btn-main:link,
-.btn-hot:link {
+// Declaring an Extends
+%btn-placeholder {
   padding: 10px;
   display: inline-block;
   text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
   width: $width-button;
   border-radius: 100px;
 
-  color: $color-text-light;
+  // Including mixin
+  @include style-link-text($color-text-light);
 }
 
 .btn-main {
   // Nesting
   &:link {
+    // Including Extends
+    @extend %btn-placeholder;
     background-color: $color-secondary;
   }
   // Nesting
@@ -83,6 +103,8 @@ nav {
 .btn-hot {
   // Nesting
   &:link {
+    // Including Extends
+    @extend %btn-placeholder;
     background-color: $color-tertiary;
   }
   // Nesting
@@ -91,3 +113,9 @@ nav {
     background-color: lighten($color-tertiary, 15%);
   }
 }
+
+// ~ Mixin & Extends are different :
+
+// Mixin : In Mixin the Values are substituted at the place where mixin is included i.e say for example at @include style-link-text
+
+// Extends : In Extends the classes are substituted at the place where the extends are declared i.e say for example at %btn-placeholder
