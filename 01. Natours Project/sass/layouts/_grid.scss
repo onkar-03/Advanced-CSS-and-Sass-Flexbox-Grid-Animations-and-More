@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
 
   // Trick to Center Block level Elements
   margin: 0 auto;
@@ -20,7 +19,6 @@
   // $= : Selecting all classes ending with 'col-'
 
   [class^='col-'] {
-    background-color: orangered;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;

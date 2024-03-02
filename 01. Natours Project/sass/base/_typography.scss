@@ -47,3 +47,34 @@ body {
     animation: moveInRight 1s ease-out;
   }
 }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+
+  // Giving Text Linear Gradient Style
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+
+  //giving Background to only Content Length
+  display: inline-block;
+
+  // Clipping the Background to only text area
+  -webkit-background-clip: text;
+
+  //Color transparent so as to show the background gradient
+  color: transparent;
+
+  //Animation
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1.1rem 2rem rgba($color: #000000, $alpha: 0.2);
+  }
+}
