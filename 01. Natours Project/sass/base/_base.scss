@@ -1,0 +1,19 @@
+// Light green: #7ed56f
+// Medium green: #55c57a
+// Dark green: #28b485
+
+// Best Universal Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Root Font Size Declaration
+html {
+  // Default font-size: 16px
+  // font-size: 10px;
+  // 10 / 16 = 0.625 = 62.5%;
+  // Percentage of User Browser font-size setting
+  font-size: 62.5%;
+}
