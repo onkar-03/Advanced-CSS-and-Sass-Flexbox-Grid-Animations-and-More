@@ -1,45 +1,46 @@
-/*
-COLORS:
+// COLORS:
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-*/
+// Light green: #7ed56f
+// Medium green: #55c57a
+// Dark green: #28b485
 
+//Declaring Sass Variables
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
-/* Best Universal Reset */
+$color-black: #000;
+
+// Best Universal Reset
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Root Font Size Declaration*/
+// Root Font Size Declaration
 html {
-  /* Default font-size: 16px */
-  /* font-size: 10px; */
-  /* 10 / 16 = 0.625 = 62.5%; */
-  /* Percentage of User Browser font-size setting */
+  // Default font-size: 16px
+  // font-size: 10px;
+  // 10 / 16 = 0.625 = 62.5%;
+  // Percentage of User Browser font-size setting
   font-size: 62.5%;
 }
 
-/* Body & Overall Display Settings */
+// Body & Overall Display Settings
 body {
-  /* As font-style is a property thats inherited hence declaring it in body */
+  // As font-style is a property thats inherited hence declaring it in body
   font-style: 'Lato', sans-serif;
 
-  /* Default Line Height */
+  // Default Line Height
   line-height: 1.7;
 
-  /* Color */
+  // Color
   color: $color-grey-dark;
 
-  /* Border Around the Web Page */
+  // Border Around the Web Page
   padding: 3rem;
 }
 
@@ -52,74 +53,78 @@ body {
     ),
     url(../img/hero.jpg);
 
-  /* It automatically scales & crops the image as needed to cover the entire background, without leaving any empty space */
+  // It automatically scales & crops the image as needed to cover the entire background, without leaving any empty space
   background-size: cover;
 
-  /* This property is used to specify the starting position of a background image within its containing element */
+  // This property is used to specify the starting position of a background image within its containing element
   background-position: top;
 
-  /* clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element */
+  // clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-  /* Relative Parent for Logo img */
+  // Relative Parent for Logo img
   position: relative;
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  // Nesting
+  // & In short copies the parent class at its place
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  /* Center Heading Content at the Center of the Page */
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  &__text-box {
+    // Center Heading Content at the Center of the Page
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  /* Align anchor elements {['Button'] which are inline} at the center of the TextBox Section */
-  text-align: center;
+    // Align anchor elements {['Button'] which are inline} at the center of the TextBox Section
+    text-align: center;
+  }
 }
 
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
   margin-bottom: 6rem;
+
+  // Nesting
+  &--main {
+    // To display main & sub lines in different lines
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+
+    // Animations
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    // To remove the shakiness of the animation
+    backface-visibility: hidden;
+  }
+
+  // Nesting
+  &--sub {
+    // To display main & sub lines in different lines
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    // Animations shorthand notation
+    animation: moveInRight 1s ease-out;
+  }
 }
 
-.heading-primary--main {
-  /* To display main & sub lines in different lines */
-  display: block;
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-
-  /* Animations */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-
-  /* To remove the shakiness of the animation */
-  backface-visibility: hidden;
-}
-
-.heading-primary--sub {
-  /* To display main & sub lines in different lines */
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-
-  /* Animations shorthand notation */
-  animation: moveInRight 1s ease-out;
-}
-
-/* Move in from Left heading-primary-main */
+// Move in from Left heading-primary-main
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -135,7 +140,7 @@ body {
   }
 }
 
-/* Move in from Right heading-primary-sub */
+// Move in from Right heading-primary-sub
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -162,86 +167,88 @@ body {
   }
 }
 
-/* BUTTON */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 1.6rem;
+// BUTTON
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
 
-  /* Anchor elements are inline */
-  display: inline-block;
+    // Anchor elements are inline
+    display: inline-block;
 
-  padding: 1.5rem 4rem;
-  border-radius: 10rem;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
 
-  /* Smooth Transition of Button on Hover and Active */
-  transition: all 0.2s;
+    // Smooth Transition of Button on Hover and Active
+    transition: all 0.2s;
 
-  /* To push the ::after button back the parent button needs to be relative */
-  position: relative;
-}
+    // To push the ::after button back the parent button needs to be relative
+    position: relative;
+  }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    // On hovering animating the ::after button
+    &::after {
+      // Wanna scale it and then make it disappear to add a scaling effect on hovering
+      // Initial state for transition : hover::after
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/* Pseudo Button Element */
-.btn::after {
-  content: '';
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-  /* As the original Button is also inline block  */
-  display: inline-block;
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-  /* As ::after is child of button, 100% means exactly as the size of the buttons */
-  height: 100%;
-  width: 100%;
+  // Pseudo Button Element
+  &::after {
+    content: '';
 
-  border-radius: 10rem;
+    // As the original Button is also inline block
+    display: inline-block;
 
-  /* Absolute Positioning to place it behind the Main Button */
-  /* Parent : .btn:link,.btn:hover{} */
-  position: absolute;
-  top: 0;
-  left: 0;
+    // As ::after is child of button, 100% means exactly as the size of the buttons
+    height: 100%;
+    width: 100%;
 
-  /* Pushing behind the button */
-  z-index: -1;
+    border-radius: 10rem;
 
-  /* Animation Transition for .btn:hover::after */
-  transition: all 0.4s;
-}
+    // Absolute Positioning to place it behind the Main Button
+    // Parent : .btn:link,.btn:hover{}
+    position: absolute;
+    top: 0;
+    left: 0;
 
-.btn--white::after {
-  background-color: $color-white;
-}
+    // Pushing behind the button
+    z-index: -1;
 
-/* On hovering animating the ::after button */
-.btn:hover::after {
-  /* Wanna scale it and then make it disappear to add a scaling effect on hovering */
-  /* Initial state for transition : hover::after */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+    // Animation Transition for .btn:hover::after
+    transition: all 0.4s;
+  }
 
-.btn--animated {
-  animation-name: moveInBottom;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0.5s;
+  &--animated {
+    animation-name: moveInBottom;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
 
-  /* The button is already there and does not come up from the bottom initially */
-  /* animation-fill-mode:backwards; is used to apply the 0% state from the very beginning to the button */
-  animation-fill-mode: backwards;
+    // The button is already there and does not come up from the bottom initially
+    // animation-fill-mode:backwards; is used to apply the 0% state from the very beginning to the button
+    animation-fill-mode: backwards;
+  }
 }

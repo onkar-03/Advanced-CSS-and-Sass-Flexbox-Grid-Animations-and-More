@@ -1,92 +1,57 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-*/
-/* Best Universal Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
-/* Root Font Size Declaration*/
 html {
-  /* Default font-size: 16px */
-  /* font-size: 10px; */
-  /* 10 / 16 = 0.625 = 62.5%; */
-  /* Percentage of User Browser font-size setting */
   font-size: 62.5%; }
 
-/* Body & Overall Display Settings */
 body {
-  /* As font-style is a property thats inherited hence declaring it in body */
   font-style: 'Lato', sans-serif;
-  /* Default Line Height */
   line-height: 1.7;
-  /* Color */
   color: #777;
-  /* Border Around the Web Page */
   padding: 3rem; }
 
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* It automatically scales & crops the image as needed to cover the entire background, without leaving any empty space */
   background-size: cover;
-  /* This property is used to specify the starting position of a background image within its containing element */
   background-position: top;
-  /* clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* Relative Parent for Logo img */
   position: relative; }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  /* Center Heading Content at the Center of the Page */
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Align anchor elements {['Button'] which are inline} at the center of the TextBox Section */
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    backface-visibility: hidden; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
-.heading-primary--main {
-  /* To display main & sub lines in different lines */
-  display: block;
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-  /* Animations */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* To remove the shakiness of the animation */
-  backface-visibility: hidden; }
-
-.heading-primary--sub {
-  /* To display main & sub lines in different lines */
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* Animations shorthand notation */
-  animation: moveInRight 1s ease-out; }
-
-/* Move in from Left heading-primary-main */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -98,7 +63,6 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-/* Move in from Right heading-primary-sub */
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -118,24 +82,22 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-/* BUTTON */
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   font-size: 1.6rem;
-  /* Anchor elements are inline */
   display: inline-block;
   padding: 1.5rem 4rem;
   border-radius: 10rem;
-  /* Smooth Transition of Button on Hover and Active */
   transition: all 0.2s;
-  /* To push the ::after button back the parent button needs to be relative */
   position: relative; }
 
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -144,41 +106,24 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
-/* Pseudo Button Element */
 .btn::after {
   content: '';
-  /* As the original Button is also inline block  */
   display: inline-block;
-  /* As ::after is child of button, 100% means exactly as the size of the buttons */
   height: 100%;
   width: 100%;
   border-radius: 10rem;
-  /* Absolute Positioning to place it behind the Main Button */
-  /* Parent : .btn:link,.btn:hover{} */
   position: absolute;
   top: 0;
   left: 0;
-  /* Pushing behind the button */
   z-index: -1;
-  /* Animation Transition for .btn:hover::after */
   transition: all 0.4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-/* On hovering animating the ::after button */
-.btn:hover::after {
-  /* Wanna scale it and then make it disappear to add a scaling effect on hovering */
-  /* Initial state for transition : hover::after */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
 
 .btn--animated {
   animation-name: moveInBottom;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
   animation-delay: 0.5s;
-  /* The button is already there and does not come up from the bottom initially */
-  /* animation-fill-mode:backwards; is used to apply the 0% state from the very beginning to the button */
   animation-fill-mode: backwards; }
