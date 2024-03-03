@@ -83,3 +83,35 @@
     animation-fill-mode: backwards;
   }
 }
+
+.btn-text {
+  &:link,
+  &:visited {
+    color: $color-primary;
+    font-size: $default-font-size;
+    text-decoration: none;
+
+    //Inline to Inline Block so as to apply styles like margin padding etc..
+    display: inline-block;
+
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+
+    //Animation
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    background-color: $color-primary-dark;
+    color: $color-white;
+  }
+}
