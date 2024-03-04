@@ -42,7 +42,8 @@
     }
   }
 
-  //Decrease the Size of Photos that are not hovered
+  // Decrease the Size of Photos that are not hovered
+  // As soon as we hover over the Components section applying decrease in image size to those images that are'nt hovered currently
   &:hover &__photo:not(:hover) {
     transform: scale(0.9);
   }
