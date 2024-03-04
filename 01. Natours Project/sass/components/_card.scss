@@ -1,0 +1,67 @@
+.card {
+  // The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
+  perspective: 150rem;
+
+  //For mozilla firefox we use this fix
+  -moz-perspective: 150rem;
+
+  //Parent of card front & back set to relative position
+  position: relative;
+
+  // When all children elements are floated then the parent height collapses
+  // Same happens when all the children are absolutely positioned
+  // To fix there is no clearfix hack here
+  // We need to give the same height to the parent as well that the fix
+  height: 50rem;
+
+  &__side {
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+
+    //Animation
+    transition: all 0.8s ease;
+
+    //Absolute positioning of Cards
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    //Card width
+    width: 100%;
+
+    //To hide the backface visibility of back card initially
+    backface-visibility: hidden;
+
+    border-radius: 0.2rem;
+    box-shadow: 0 1.4rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      background-color: black;
+      transform: rotateY(180deg);
+
+      //Background Gradient Card 1
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  //Rotate front side of the card only when hovered as the backside is already rotated
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  //Rotate the back side to normal on hover as already rotated to 180 degrees initially
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
