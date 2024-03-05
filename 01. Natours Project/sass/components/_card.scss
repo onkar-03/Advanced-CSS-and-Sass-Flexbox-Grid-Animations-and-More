@@ -44,7 +44,6 @@
     }
 
     &--back {
-      background-color: black;
       transform: rotateY(180deg);
 
       //Background Gradient Card 1
@@ -53,6 +52,23 @@
           to right bottom,
           $color-secondary-light,
           $color-secondary-dark
+        );
+      }
+
+      //Background Gradient Card 2
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
         );
       }
     }
@@ -85,6 +101,11 @@
     //For unsupported browser
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
+    //On using the clip-path then overflow hidden doesn't work hence defining border top left & right separately
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
     &--1 {
       background-image: linear-gradient(
           to right bottom,
@@ -101,6 +122,24 @@
       //     rgba($color-secondary-dark, 0.5)
       //   ),
       //   url(../../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-7.jpg);
     }
   }
 
@@ -136,6 +175,22 @@
         rgba($color-secondary-dark, 0.85)
       );
     }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
   }
 
   &__details {
@@ -154,5 +209,35 @@
         }
       }
     }
+  }
+
+  // ^ Back Side Styling
+  &__cta {
+    //Center the cta Container using the absolute position trick
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+
+    // anchor Element is inline treated as text hence text-align:center works
+    text-align: center;
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: 6rem;
+
+    //Huge Text less weight
+    font-weight: 100;
   }
 }
