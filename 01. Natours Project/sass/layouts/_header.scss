@@ -16,6 +16,9 @@
   // clip-path It allows you to create complex shapes or paths and then use them to clip or mask the visible content of an element
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  //Incase doesn't work for some browsers
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
   // Relative Parent for Logo img
   position: relative;
 

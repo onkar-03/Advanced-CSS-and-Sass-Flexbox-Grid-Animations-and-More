@@ -1,4 +1,6 @@
 .card {
+  // ^ Functionality
+
   // The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
   perspective: 150rem;
 
@@ -12,12 +14,10 @@
   // Same happens when all the children are absolutely positioned
   // To fix there is no clearfix hack here
   // We need to give the same height to the parent as well that the fix
-  height: 50rem;
+  height: 52rem;
 
   &__side {
-    color: white;
-    font-size: 2rem;
-    height: 50rem;
+    height: 52rem;
 
     //Animation
     transition: all 0.8s ease;
@@ -33,8 +33,11 @@
     //To hide the backface visibility of back card initially
     backface-visibility: hidden;
 
-    border-radius: 0.2rem;
+    border-radius: 3px;
     box-shadow: 0 1.4rem 4rem rgba($color-black, 0.15);
+
+    //Stop Card Image Overflow
+    overflow: hidden;
 
     &--front {
       background-color: $color-white;
@@ -57,11 +60,99 @@
 
   //Rotate front side of the card only when hovered as the backside is already rotated
   &:hover &__side--front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
   //Rotate the back side to normal on hover as already rotated to 180 degrees initially
   &:hover &__side--back {
     transform: rotateY(0);
+  }
+
+  // ^ Front Side Styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+
+    //To add Light Opacity view to images without using alpha property in linear-gradient()
+    background-blend-mode: screen;
+
+    //Clip images
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    //Incase doesn't work for some browsers
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    //For unsupported browser
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+
+      //Incase not using background-blend-mode:screen;
+
+      // background-image: linear-gradient(
+      //     to right,
+      //     rgba($color-secondary-light, 0.5),
+      //     rgba($color-secondary-dark, 0.5)
+      //   ),
+      //   url(../../img/nat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+
+    // Placing the text on top of Image
+    // Absolute positioning
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+
+    // Text Align
+    text-align: right;
+
+    //Adjusting width to keep then in 2 lines
+    width: 60%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+
+    //Doesn't work in Brave and some browsers hence using webkit
+    -webkit-box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
   }
 }
