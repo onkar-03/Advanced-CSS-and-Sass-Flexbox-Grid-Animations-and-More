@@ -1,0 +1,52 @@
+.story {
+  width: 75%;
+
+  //Center Block Element
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-grey-light-1;
+  border-radius: 3px;
+
+  padding: 6rem;
+  padding-left: 9rem;
+
+  //paragraph font-size
+  font-size: $default-font-size;
+
+  // Skewed Rectangular Design
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+
+    background-color: orange;
+    //Floating the Shape Image at te Left side
+    float: left;
+
+    // Shaping the Image as a Circle
+    // shape-outside: works only on floating objects
+    // The shape-outside property is a CSS property used in web development to define a shape around which text content should flow
+    // circle(radius length percentage , position of center from x & y Axis)
+    shape-outside: circle(50% at 50% 50%);
+
+    //For browsers where shape-outside isn't supported :
+    -webkit-shape-outside: circle(50% at 50% 50%);
+
+    //Circular design
+    clip-path: circle(50% at 50% 50%);
+
+    //giving gap between the shape and the text
+    // Anti skewing for straight content view
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__text {
+    // Anti skewing for straight content view
+    transform: skewX(12deg);
+  }
+}
