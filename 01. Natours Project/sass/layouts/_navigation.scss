@@ -1,0 +1,111 @@
+.navigation {
+  &__checkbox {
+    //hiding the checkbox
+    display: none;
+  }
+  &__button {
+    //Dimensions of button initially hiding the background as we want it when we open the nav and not before
+    height: 7rem;
+    width: 7rem;
+    background-color: $color-white;
+
+    //Fix position
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+
+    border-radius: 50%;
+
+    //placing in front of background
+    z-index: 2000;
+  }
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+
+    //Fix it at the top right
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+
+    // Background gradient
+    // This tym we use the radial gradient
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    //z-index to keep it in front
+    z-index: 1000;
+
+    transform: scale(80);
+  }
+  &__nav {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    //Placing above the background & behind the button
+    z-index: 1501;
+  }
+  &__list {
+    //Centering List Items at the center of the page
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    list-style: none;
+    text-align: center;
+  }
+  &__item {
+    margin: 1rem;
+  }
+  &__link {
+    display: inline-block;
+
+    span {
+      margin-right: 1rem;
+      display: inline-block;
+    }
+
+    &:link,
+    &:visited {
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-white;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+
+      // White background animation
+      // Solid Linear Gradient
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+
+      //To make the Initial state of the Gradient completely transparent we increase the background gradient of transparent to cover the whole text using background-size
+      background-size: 220%;
+
+      //Animation
+      transition: all 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      //Shifting the background to completely left side so as to make the White gradient visible
+      background-position: 100%;
+
+      //set the text color to Primary Green when hovered
+      color: $color-primary;
+
+      //Move to right a bit on hovering
+      transform: translateX(1rem);
+    }
+  }
+}
