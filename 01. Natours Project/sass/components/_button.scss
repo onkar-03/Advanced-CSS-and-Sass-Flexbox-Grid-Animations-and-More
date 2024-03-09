@@ -1,5 +1,7 @@
 // BUTTON
 .btn {
+  //&, signifies that the button properties apply to notmal buttons too i.e which arent anchor elements / which dont have link or visited in them
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -17,6 +19,10 @@
 
     // To push the ::after button back the parent button needs to be relative
     position: relative;
+
+    //Border removal of buttons and cursor changes
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
