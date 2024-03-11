@@ -54,7 +54,23 @@
   }
 
   &__text {
+    display: inline-block;
     font-size: 1.4rem;
     margin-bottom: 4rem;
+
+    // Display the text content in 2 columns
+    column-count: 2;
+    column-gap: 4rem;
+
+    // 1em = 14px here, as em take the font-size of the current element
+
+    // Add column line
+    column-rule: 1px solid $color-grey-light-2;
+
+    // Add hyphen for incomplete words in a particular line
+    hyphens: auto;
+
+    //For browsers that dont support this
+    -webkit-hyphens: auto;
   }
 }

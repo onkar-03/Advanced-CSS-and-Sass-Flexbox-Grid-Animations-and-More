@@ -486,8 +486,14 @@ body {
     display: block;
     width: 100%; }
   .popup__text {
+    display: inline-block;
     font-size: 1.4rem;
-    margin-bottom: 4rem; }
+    margin-bottom: 4rem;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid #eee;
+    hyphens: auto;
+    -webkit-hyphens: auto; }
 
 .header {
   height: 95vh;
