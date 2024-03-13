@@ -17,6 +17,7 @@
   // Setting amx width for different dives case
   @include respond(tab-port) {
     max-width: 50rem;
+    padding: 0 3rem;
   }
 
   // Including Clearfix Mixin
