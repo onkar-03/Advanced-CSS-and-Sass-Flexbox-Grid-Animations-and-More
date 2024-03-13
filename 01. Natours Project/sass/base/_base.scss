@@ -34,3 +34,12 @@ html {
     font-size: 75%; // 1rem = 12px -> 12 / 16 = 75%
   }
 }
+
+body {
+  // Border Around the Web Page
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}

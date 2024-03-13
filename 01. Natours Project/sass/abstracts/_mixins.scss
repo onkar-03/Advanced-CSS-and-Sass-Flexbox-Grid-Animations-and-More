@@ -33,12 +33,15 @@
 - tab-port
 - tab-land
 - big-desktop
+
+1em = 16px we take
+
+Order: Base + Typography > General Layout + Grid > Page Layout > Componentss
 */
 
 // Using Good way of breakpoint selection i.e Commonly used devices screen sizes
 
 // We won't use pixels rather we use 'em' here as rem does not work the way we want in media queries in many browsers
-// 1em = 16px we take
 @mixin respond($breakpoint) {
   @if $breakpoint== phone {
     @media (max-width: 37.5em) {

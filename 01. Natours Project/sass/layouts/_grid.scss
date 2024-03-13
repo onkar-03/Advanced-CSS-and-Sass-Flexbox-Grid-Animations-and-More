@@ -8,6 +8,15 @@
   // Adding margin-bottom to all rows except the last one
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  // Setting amx width for different dives case
+  @include respond(tab-port) {
+    max-width: 50rem;
   }
 
   // Including Clearfix Mixin
@@ -22,6 +31,16 @@
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    // Making all the columns take 100% width means each behaving as a row
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
 
