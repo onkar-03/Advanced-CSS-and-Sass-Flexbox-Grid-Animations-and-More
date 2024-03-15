@@ -9,6 +9,10 @@
   //Animations
   transition: all 0.3s;
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   &__icon {
     //As Icon Used is Text Format hence font-size to increase the size of the Icon
     font-size: 6rem !important;
@@ -29,6 +33,10 @@
 
     //Color transparent so as to show the background gradient
     color: transparent;
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
   }
 
   &:hover {
