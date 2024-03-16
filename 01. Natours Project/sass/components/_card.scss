@@ -240,4 +240,50 @@
     //Huge Text less weight
     font-weight: 100;
   }
+
+  @include respond(tab-port) {
+    height: auto;
+
+    // As we merge the front and back side of the card as together hence applying the border radius background color & shadow to the overall container now
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.4rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    //Don't Rotate front side of the card only when hovered ain lesser resolution screens
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // ^ Back Side Styling
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
 }
