@@ -428,7 +428,25 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+        <!-- Art Switching Responsive Image Trick -->
+        <!-- Using Different Images for Different Screen Sizes -->
+        <picture class="footer__logo">
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-2x.png 2x
+            "
+            media="(max-width:37.5rem)"
+          />
+          <!-- Density Switching Responsive Image Trick -->
+          <!-- Using srcset, for Responsive image setting for different displays -->
+          <!-- 1x and 2x at the end are density descriptor -->
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+            src="img/logo-green-2x.png"
+          />
+        </picture>
       </div>
       <div class="row">
         <div class="col-1-of-2">
