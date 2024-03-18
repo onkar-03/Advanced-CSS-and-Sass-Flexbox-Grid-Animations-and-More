@@ -18,6 +18,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
+  // Adding conditions blur background saying if background filter is applied we want the background blur to be .3 in such case
   @supports (backdrop-filter: blur(10px)) or
     (-webkit-backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
