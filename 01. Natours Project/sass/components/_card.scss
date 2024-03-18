@@ -241,7 +241,14 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  // Modifying the code for devices where the cards are still displayed with front and back sides but the screen doesn't have a hover feature
+  // In such cases user cant hover and turn the card hence in such cases also we want the card to have the merged version of front and back
+  // Hover:none condition checks using css if device screen has a feature to hover if not then the merged card will be displayed
+
+  // @include respond(tab-port) {
+
+  //Can't write multiple conditions media queries using mixin media query hence using the standard way to write query here
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
 
     // As we merge the front and back side of the card as together hence applying the border radius background color & shadow to the overall container now
