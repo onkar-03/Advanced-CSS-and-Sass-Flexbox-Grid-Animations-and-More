@@ -1,14 +1,66 @@
 // LOGO
 .logo {
   height: 3.25rem;
+  margin-left: 3rem;
 }
 
 // SEARCH
 .search {
+  flex: 0 0 40%;
+
+  // Centering icon inside the search bar
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &__input {
+    // font-family & font-size are not inherited by input elements
+    // hence declaring it as inherit
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+
+    //To make the icon move inside the search bar
+    margin-right: -3rem;
+
+    // Width 90% of parents width
+    width: 90%;
+    transition: all 0.2s;
+
+    // Increase Search bar width on focus
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  // '+' Adjacent Sibling Selector
+  // Changing the background color to same as that of the search icon when the search bar is focussed
+  // Doing it separately as we want the color to change when the input field is focussed and not just the icon
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
   }
 
   &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: translateY(0.2rem);
+    }
   }
 
   &__icon {
@@ -16,11 +68,16 @@
     // Simply set the Height an Width
     height: 2rem;
     width: 2rem;
+
+    // Changing Color of the SVG Icons
+    fill: var(--color-grey-dark-3);
   }
 }
 
 // USER NAVIGATION
 .user-nav {
+  display: flex;
+  background-color: greenyellow !important;
   &__icon-box {
   }
 
