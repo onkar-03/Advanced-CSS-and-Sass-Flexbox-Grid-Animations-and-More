@@ -33,7 +33,47 @@
   </head>
   <body>
     <div class="container">
-      <header class="header">Header Part</header>
+      <header class="header">
+        <img src="img/logo.png" alt="trillo logo" class="logo" />
+        <form action="#" class="search">
+          <input
+            type="text"
+            class="search__input"
+            placeholder="Search Hotels"
+          />
+          <button class="search__button">
+            <!-- Including SVG Icons -->
+            <svg class="search__icon">
+              <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+            </svg>
+          </button>
+        </form>
+        <nav class="user-nav">
+          <!-- Nav Element 1 -->
+          <div class="user-nav__icon-box">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+            </svg>
+            <span class="user-nav__notification">7</span>
+          </div>
+          <!-- Nav Element 2 -->
+          <div class="user-nav__icon-box">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/sprite.svg#icon-chat"></use>
+            </svg>
+            <span class="user-nav__notification">13</span>
+          </div>
+          <!-- Nav Element 3 -->
+          <div class="user-nav__user">
+            <img
+              src="img/user.jpg"
+              alt="User Photo"
+              class="user-nav__user-photo"
+            />
+            <span class="user-nav__user-name">Onkar</span>
+          </div>
+        </nav>
+      </header>
       <div class="content">
         <nav class="sidebar">sidebar</nav>
         <main class="hotel-view">hotel view</main>
