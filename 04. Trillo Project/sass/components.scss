@@ -1,7 +1,7 @@
 // LOGO
 .logo {
   height: 3.25rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 // SEARCH
@@ -77,25 +77,72 @@
 // USER NAVIGATION
 .user-nav {
   display: flex;
-  background-color: greenyellow !important;
+  justify-content: center;
+  align-items: center;
+
+  // Aligning the Items to take the full width of the container
+  align-self: stretch;
+
+  // Applying style to all the direct children of user-nav
+  // & > * : means all the direct children of the user-nav
+  & > * {
+    padding: 0rem 2rem;
+    cursor: pointer;
+
+    // As the user-nav takes 100% of the width bcoz of stretch we want the items to to take the same width
+    height: 100%;
+  }
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
   &__icon-box {
+    // Centering the Items vertically and horizontally
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Relative parent positioning for notification
+    position: relative;
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+
+    // Changing color fo the SVG Icons
+    fill: var(--color-grey-dark-2);
   }
 
   &__notification {
+    font-size: 0.8rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 100px;
+    background-color: var(--color-primary);
+    color: white;
+
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    // Using flexbox to center the notification text as well
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__user {
+    // Centering the Items vertically and horizontally
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__user-photo {
     height: 3.75rem;
     width: 3.75rem;
-
+    margin-right: 1rem;
     border-radius: 50%;
   }
 
