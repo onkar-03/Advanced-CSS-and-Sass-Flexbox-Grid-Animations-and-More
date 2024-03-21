@@ -253,13 +253,24 @@
 // OVERVIEW
 .overview {
   display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-light-2);
   &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    padding: 1.5rem 3rem;
     text-transform: uppercase;
   }
   &__stars {
     // want the layout to have the stars close to the heading and the location at the extreme right
     // Using the Margin right trick to make the content take only the space required and also push the rest of the elements at the extreme right
     margin-right: auto;
+
+    // SVG Stars have a default space at the bottom of them which needs to be nullified
+    // Way 1 : assign them as flex
+    // WAY 2 : line height and font-size as '0'
+    display: flex;
   }
   &__icon-star,
   &__icon-location {
@@ -268,11 +279,72 @@
     fill: var(--color-primary);
   }
   &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
   }
+
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+
   &__rating {
-    &-average {
-    }
-    &-count {
-    }
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: white;
+    align-self: stretch;
+    padding: 0 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -0.3rem;
+  }
+  &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}
+
+// BUTTON
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  border-bottom: 1px solid currentColor;
+  padding: 0.2rem;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+  }
+
+  &:focus {
+    outline: none;
+    // Infinite animation on focus mode
+    animation: pulsate 1s infinite;
+  }
+}
+
+// Animation on location focus
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4 rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
   }
 }
