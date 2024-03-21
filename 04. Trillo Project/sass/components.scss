@@ -156,17 +156,77 @@
   justify-content: space-between;
 }
 .side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
   &__item {
-    width: 1.75rem;
-    height: 1.75rem;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
-  &__link {
-    width: 1.75rem;
-    height: 1.75rem;
+
+  // Applying the hover effect on the navigation
+  // Using the before pseudo element & absolute positioning
+  // Initial scale in Y is 0
+  &__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+
+    // transition origin of animation default is center
+    // transform-origin: bottom;
+
+    // Animation
+    // Adding delay of .2s for the width animation
+    // Added a cubic bezier time function for the transition
+    transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  // Changing the color on active state
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    padding: 1.5rem 3rem;
+
+    // Placing the Links above the sliding transition
+    // Setting a z-index and it only applies when the position is specified
+    z-index: 10;
+    position: relative;
+
+    // Centering the Text and the SVG Icons Vertically
+    display: flex;
+    align-items: center;
   }
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    // Current color states that the same color as that of the parent should be used
+    // works the same way Just like inherit
+    // Parent link color : grey-light-1
+    fill: currentColor;
   }
 }
 
