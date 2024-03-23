@@ -441,15 +441,23 @@
     // Adding the icon
     // Older Browser Methods
     // ^ we cant change the color of the icon if we use the background-image property
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     // Newer Browsers - masks
     // Here we declare a background color we require for the icon and then mask the background with the icon
     // So only the icon part is visible in teh required color
-    background-color: var(--color-primary);
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+
+    // Improvised it saying if we can use mask in the browser only then implement this
+    // Also uncommented the background-image code in case mask isn't supported the background-image one works fine
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+
+      //Setting background-image to none
+      background-image: none;
+    }
   }
 }
 
