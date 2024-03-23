@@ -13,6 +13,10 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+  }
   &__input {
     // font-family & font-size are not inherited by input elements
     // hence declaring it as inherit
@@ -224,6 +228,11 @@
       justify-content: center;
       padding: 2rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
   &__icon {
     width: 1.75rem;
@@ -233,6 +242,13 @@
     // works the same way Just like inherit
     // Parent link color : grey-light-1
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -271,6 +287,11 @@
     letter-spacing: 0.1rem;
     padding: 1.5rem 3rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &__stars {
     // want the layout to have the stars close to the heading and the location at the extreme right
@@ -308,15 +329,26 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -0.3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -420,6 +452,7 @@
     mask-size: cover;
   }
 }
+
 //RECOMMEND
 .recommend {
   font-size: 1.3rem;
@@ -433,6 +466,7 @@
   }
 
   &__friends {
+    //In order to always display the photos of recommended peoples side by side
     display: flex;
   }
 
