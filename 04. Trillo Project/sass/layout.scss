@@ -8,6 +8,11 @@
   box-shadow: var(--shadow-dark);
 
   min-height: 50rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+    max-width: 100%;
+  }
 }
 
 .header {
@@ -24,10 +29,18 @@
 
 .content {
   display: flex;
+
+  @media only screen and (max-width: 65.25em) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
+  // Pushing the legal text ar the very bottom vertically
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   // Shorthand for flex-grow , -shrink & -basis
   flex: 0 0 18%;
@@ -45,6 +58,10 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: 1px solid var(--color-grey-light-2);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
 }
 
 .description {
@@ -55,6 +72,11 @@
   padding: 3rem;
 
   font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
 }
 
 .user-reviews {

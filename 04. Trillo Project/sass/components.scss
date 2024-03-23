@@ -147,24 +147,25 @@
   }
 }
 
-// SIDE BAR
-
-.sidebar {
-  // Pushing the legal text ar the very bottom vertically
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+// SIDE NAVIGATION
 .side-nav {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
 
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+    }
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
@@ -218,6 +219,11 @@
     // Centering the Text and the SVG Icons Vertically
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
   }
   &__icon {
     width: 1.75rem;
@@ -236,6 +242,10 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 // GALLERY
@@ -423,6 +433,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -435,7 +446,7 @@
     box-sizing: content-box;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -502,6 +513,11 @@
 
     z-index: 1;
   }
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 }
 
 // CALL TO ACTION
@@ -514,6 +530,10 @@
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem;
   }
 }
 
