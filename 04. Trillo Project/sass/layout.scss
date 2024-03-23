@@ -60,5 +60,10 @@
 .user-reviews {
   // to take hte rest of the 40% space left
   flex: 1;
-  background-color: greenyellow;
+  font-size: 1.4rem;
+
+  //centering all the buttons and review boxes to the center using flex box
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
