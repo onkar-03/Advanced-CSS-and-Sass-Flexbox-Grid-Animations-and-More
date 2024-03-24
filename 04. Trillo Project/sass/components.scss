@@ -270,7 +270,9 @@
 
   &__photo {
     width: 100%;
-
+    flex-grow: 1;
+    height: 32rem;
+    width: 20rem;
     // To remove any white spaces between the images as block level elements dont allow other elements along their side horizontally
     // display: block;
   }
