@@ -38,3 +38,14 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.container {
+  display: grid;
+
+  //min-content : represents the smallest size a grid item can be while still fitting its content.
+
+  // First Row : is relative to viewport height
+  // Third Row : is relative to viewport width and
+  // Rest of the rows we want the row to be of the minimum width fitting the content it has to hold
+  grid-template-rows: 80vh min-content 40vw repeat(3min-content);
+}
