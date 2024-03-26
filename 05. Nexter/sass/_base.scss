@@ -67,10 +67,4 @@ body {
     )
     [center-end] minmax(6rem, 1fr)
     [full-end];
-
-  //Testing Purpose
-  & > * {
-    font-size: 3rem;
-    padding: 40px;
-  }
 }
