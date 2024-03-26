@@ -7,5 +7,24 @@
   &__content {
     background-color: $color-grey-light-1;
     grid-column: col-start 5 / full-end;
+    padding: 6rem 8vw;
+
+    // T0 Center the Content we use the flex box
+    // As there are no side by side content / 2D Layout we can use the Flexbox if we want and not grid
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // As align items by default is stretch hence putting it as per out requirement as we dont want ti to stretch
+    align-items: flex-start;
+
+    // Using GRID
+    // display: grid;
+    // align-content: center;
+    // justify-items: start;
+  }
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
   }
 }
