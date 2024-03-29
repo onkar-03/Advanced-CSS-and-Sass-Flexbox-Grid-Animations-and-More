@@ -17,7 +17,8 @@ $font-display: 'Josefin Sans', sans-serif;
 //MEDIA QUERY VARIABLES
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
-
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
 *,
 ::before,
 ::after {
@@ -87,5 +88,15 @@ body {
       [center-end] minmax(6rem, 1fr)
       [full-end];
     // 1rem = 8px font size
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    //Setting up the header to take the whole viewport width except the sidebar width on teh screen using calc() function
+    // Also we want the Realtors section to be a new row of min-content
+    // Also as we shifted the story section content above the image we want the row now to be of min-content and not 40vw
+    grid-template-rows: 6rem calc(100vh-6rem) min-content min-content min-content repeat(
+        3,
+        min-content
+      );
   }
 }

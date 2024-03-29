@@ -2,6 +2,16 @@
   background-color: $color-grey-dark-1;
   grid-column: full-start / col-end 6;
 
+  //Extending the Header across full width
+  @media only screen and (max-width: $bp-medium) {
+    // grid-column: 1 / -1;
+    grid-column: full-start / full-end;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 5rem;
+  }
+
   //Adding the Background image and gradient
   background-image: linear-gradient(
       rgba($color-secondary, 0.93),
@@ -79,43 +89,5 @@
       //Slightly Darken the Images
       filter: brightness(70%);
     }
-  }
-}
-
-.realtors {
-  padding: 3rem;
-
-  //Centering te whole realtors section
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  row-gap: 2rem;
-
-  &__list {
-    display: grid;
-
-    // Columns
-    // Images min-content / 7rem
-    // text max-content
-    grid-template-columns: min-content max-content;
-
-    //Items alignment Inside the cells
-    align-items: center;
-
-    column-gap: 2rem;
-    row-gap: 5vh;
-  }
-
-  &__img {
-    display: block;
-    width: 7rem;
-    border-radius: 50%;
-  }
-
-  &__sold {
-    text-transform: uppercase;
-    color: $color-grey-light-2;
-    margin-top: -3px;
   }
 }
