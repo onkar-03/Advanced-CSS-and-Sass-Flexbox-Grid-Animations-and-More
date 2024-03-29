@@ -1,7 +1,7 @@
 .story {
   &__pictures {
     background-color: $color-primary;
-    grid-column: sidebar-end / col-end 4;
+    grid-column: full-start / col-end 4;
 
     display: grid;
     grid-template-rows: repeat(6, 1fr);

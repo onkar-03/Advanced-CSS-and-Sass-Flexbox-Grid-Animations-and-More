@@ -1,6 +1,6 @@
 .header {
   background-color: $color-grey-dark-1;
-  grid-column: sidebar-end / col-end 6;
+  grid-column: full-start / col-end 6;
 
   //Adding the Background image and gradient
   background-image: linear-gradient(
@@ -18,10 +18,14 @@
 
   //Base row declaration we have the first row to be 80vh
   // Hence by giving 1fr the first row automatically takes the 80vh size
-  grid-template-rows: 1fr min-content 6rem 1fr;
+  // minmax used for responsive rows the third one stating amx to be 6 and min to be min-content
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
 
   //Declaring columns to have the maximum size it can have to fit the content
-  grid-template-columns: max-content;
+  // Using minmax to make responsive layout
+  // Minimum images just so they fit it
+  // Maximum to place the content at the maximum width
+  grid-template-columns: minmax(min-content, max-content);
 
   row-gap: 1.5rem;
   justify-content: center;
@@ -64,8 +68,13 @@
     justify-items: center;
     margin-top: 1rem;
 
+    //Align Individual Items
+    align-items: center;
+
     img {
-      height: 2.5rem;
+      //Using max-height to make it responsive
+      max-height: 2.5rem;
+      max-width: 100%;
 
       //Slightly Darken the Images
       filter: brightness(70%);
@@ -102,9 +111,6 @@
     display: block;
     width: 7rem;
     border-radius: 50%;
-  }
-
-  &__details {
   }
 
   &__sold {
