@@ -55,7 +55,6 @@
 
     //Placing the Image differently all along the screen now for this viewport width
     @media only screen and (max-width: $bp-medium) {
-      grid-column: 1 / 3;
       grid-row: 1 / -1;
       width: 100%;
     }

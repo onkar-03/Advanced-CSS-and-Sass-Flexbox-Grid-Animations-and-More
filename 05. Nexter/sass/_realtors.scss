@@ -8,7 +8,8 @@
     // grid-column: 1 / -1;
     grid-column: full-start / full-end;
   }
-  //Centering te whole realtors section
+
+  //Centering the whole realtors section
   display: grid;
   justify-content: center;
   align-content: center;
@@ -29,7 +30,7 @@
     column-gap: 2rem;
     row-gap: 5vh;
 
-    // Aligning the List Items now side by side into 3 columns of image & content where image fits the minimum width and the content fits the maximum width
+    // Aligning the List Items now side by side into 3 columns of image & content (2 columns each ) where image fits the minimum width and the content fits the maximum width
     @media only screen and (max-width: $bp-medium) {
       grid-template-columns: repeat(3, min-content max-content);
     }

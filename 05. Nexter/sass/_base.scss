@@ -94,7 +94,7 @@ body {
     //Setting up the header to take the whole viewport width except the sidebar width on teh screen using calc() function
     // Also we want the Realtors section to be a new row of min-content
     // Also as we shifted the story section content above the image we want the row now to be of min-content and not 40vw
-    grid-template-rows: 6rem calc(100vh-6rem) min-content min-content min-content repeat(
+    grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content repeat(
         3,
         min-content
       );
