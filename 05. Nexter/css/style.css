@@ -142,6 +142,28 @@ body {
       filter: brightness(70%); }
 
 .realtors {
+  padding: 3rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  row-gap: 2rem; }
+  .realtors__list {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 5vh; }
+  .realtors__img {
+    display: block;
+    width: 7rem;
+    border-radius: 50%; }
+  .realtors__sold {
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: -3px; }
+
+.realtors {
   background-color: #101d2c;
   grid-column: col-start 7 / full-end; }
 
@@ -262,7 +284,7 @@ body {
 
 .gallery {
   background-color: #54483a;
-  grid-column: full-start/full-end;
+  grid-column: sidebar-end/full-end;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(7, 5vw);
